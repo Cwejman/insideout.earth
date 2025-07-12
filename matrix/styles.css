@@ -5,6 +5,7 @@ html, body {
     color: black;
     font-family: 'DM Mono', monospace;
     overflow: hidden;
+    user-select: none;
 }
 
 #grid {
