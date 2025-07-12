@@ -9,6 +9,15 @@ body, html {
     margin: 0;
 }
 
+a {
+    position: fixed;
+    top: 0.5rem;
+    font-size: 0.8rem;
+    right: 0.5rem;
+    color: hsl(0deg, 0%, 40%);
+    text-decoration: none;
+}
+
 h1 {
     font-size: 4rem;
     line-height: 100%;
