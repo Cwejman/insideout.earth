@@ -2,57 +2,26 @@
 <html>
 <head>
     <title>Inside Out</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Prata&display=swap"
+          rel="stylesheet">
 </head>
 <body>
-<style>
-    body, html {
-    }
-
-    div {
-        position: fixed;
-        width: 150px;
-        height: 150px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    img {
-        width: 150px;
-        height: 150px;
-        animation-name: spin;
-        animation-duration: 50000ms;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-    }
-
-    @-moz-keyframes spin {
-        from {
-            -moz-transform: rotate(0deg);
-        }
-        to {
-            -moz-transform: rotate(360deg);
-        }
-    }
-
-    @-webkit-keyframes spin {
-        from {
-            -webkit-transform: rotate(0deg);
-        }
-        to {
-            -webkit-transform: rotate(360deg);
-        }
-    }
-
-    @keyframes spin {
-        from {
-            transform: rotate(0deg);
-        }
-        to {
-            transform: rotate(360deg);
-        }
-    }
-</style>
-<div><img src="/pic.png"/></div>
+<section>
+    <div>
+        <h1>Inside<br/>Out</h1>
+        <div class="card">
+            <img src="/pic.png"/>
+        </div>
+        <div class="spaced-text">
+            <p>It is just ...</p>
+            <p>... empty ...</p>
+            <p>... for now<p>
+        </div>
+    </div>
+</section>
+<div></div>
 </body>
 </html>

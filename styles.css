@@ -1,0 +1,63 @@
+* {
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+body, html {
+    background: hsl(0deg, 0%, 97%);
+    margin: 0;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 100%;
+    font-weight: 600;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+}
+
+section > div {
+    max-width: 30rem;
+    width: 100%;
+}
+
+.card {
+    border-radius: 1.5rem;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+}
+
+img {
+    width: 45%;
+    height: 45%;
+    animation: spin 1ms linear;
+    animation-timeline: scroll();
+    animation-range: entry 0% exit 100%;
+}
+
+.spaced-text {
+    display: flex;
+    height: 150vh;
+    padding: 50vh 0;
+    color: hsl(0deg, 0%, 70%);
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

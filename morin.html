@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Symbolic Sphere Eversion</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 200vh;
+            background-color: white;
+            overflow: scroll;
+        }
+
+        canvas {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .content {
+            position: absolute;
+            top: 10vh;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #333;
+            font-size: 2rem;
+            text-align: center;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    Scroll to turn the sphere inside out
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.min.js"></script>
+<script>
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0xffffff); // white background
+
+  const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+  camera.position.z = 4;
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  document.body.appendChild(renderer.domElement);
+
+  // Lighting: hard to soft
+  const light = new THREE.DirectionalLight(0xffffff, 0.9);
+  light.position.set(3, 4, 5);
+  scene.add(light);
+  scene.add(new THREE.AmbientLight(0xaaaaaa, 0.6)); // ambient gray tone
+
+  // Geometry
+  const uSegments = 100;
+  const vSegments = 100;
+  const positions = new Float32Array((uSegments + 1) * (vSegments + 1) * 3);
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  const index = [];
+
+  for (let i = 0; i < uSegments; i++) {
+    for (let j = 0; j < vSegments; j++) {
+      const a = i * (vSegments + 1) + j;
+      const b = (i + 1) * (vSegments + 1) + j;
+      const c = (i + 1) * (vSegments + 1) + (j + 1);
+      const d = i * (vSegments + 1) + (j + 1);
+      index.push(a, b, d, b, c, d);
+    }
+  }
+
+  geometry.setIndex(index);
+  geometry.computeVertexNormals();
+
+  // Grayscale material
+  const material = new THREE.MeshPhongMaterial({
+    color: 0x666666,
+    side: THREE.DoubleSide,
+    shininess: 10,
+    flatShading: false
+  });
+
+  const mesh = new THREE.Mesh(geometry, material);
+  scene.add(mesh);
+
+  // Real eversion deformation (emphasized)
+  function eversionSurface(u, v, t, target) {
+    const theta = u * Math.PI;
+    const phi = v * 2 * Math.PI;
+
+    const x = Math.sin(theta) * Math.cos(phi);
+    const y = Math.sin(theta) * Math.sin(phi);
+    const z = Math.cos(theta);
+
+    // Bump frequency and strength adjusted for drama
+    const bump = 0.7 * Math.sin(3 * theta) * Math.cos(2 * phi) * (1 - 2 * Math.abs(t - 0.5));
+    const r = 1 + bump;
+
+    const pos = new THREE.Vector3(x * r, y * r, z * r);
+    const inverted = new THREE.Vector3(-x, -y, -z);
+    pos.lerp(inverted, t); // interpolate through inversion
+
+    target.set(pos.x, pos.y, pos.z);
+  }
+
+  // Geometry updater
+  function updateGeometry(t) {
+    const positionAttr = geometry.attributes.position;
+    let i = 0;
+    for (let uStep = 0; uStep <= uSegments; uStep++) {
+      for (let vStep = 0; vStep <= vSegments; vStep++) {
+        const u = uStep / uSegments;
+        const v = vStep / vSegments;
+        const p = new THREE.Vector3();
+        eversionSurface(u, v, t, p);
+        positionAttr.setXYZ(i, p.x, p.y, p.z);
+        i++;
+      }
+    }
+    positionAttr.needsUpdate = true;
+    geometry.computeVertexNormals();
+  }
+
+  function getScrollProgress() {
+    return window.scrollY / (document.body.scrollHeight - window.innerHeight);
+  }
+
+  function animate() {
+    requestAnimationFrame(animate);
+    const t = getScrollProgress();
+    updateGeometry(t);
+    mesh.rotation.y = t * Math.PI * 2;
+    mesh.rotation.x = t * Math.PI * 0.5;
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+</script>
+</body>
+</html>
