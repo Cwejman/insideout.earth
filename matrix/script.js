@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const handleTouchMove = (event) => {
-    const touch = event[0];
+    const touch = event.touches[0];
     if (touch) update(touch);
   };
 
