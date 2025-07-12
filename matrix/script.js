@@ -33,23 +33,24 @@ const toLightLevel = (x, y, mouseX, mouseY) => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const grid = document.getElementById(gridId);
+
   let cols, rows;
   let lightMap = [];
+  let lastEvent = { clientX: -1000, clientY: -1000 };
 
-  // If called without event will render with the torchlight way outside the viewport
-  const update = (event = {
-    clientX: -1000,
-    clientY: -1000
-  }) => Array.from(grid.children).forEach((cell, i) => {
-    const x = i % cols;
-    const y = Math.floor(i / cols);
-    const level = toLightLevel(x, y, event.clientX, event.clientY);
+  const update = (event = lastEvent) => {
+    lastEvent = event;
+    Array.from(grid.children).forEach((cell, i) => {
+      const x = i % cols;
+      const y = Math.floor(i / cols);
+      const level = toLightLevel(x, y, event.clientX, event.clientY);
 
-    if (level !== lightMap[i]) {
-      lightMap[i] = level;
-      cell.textContent = toChar(level);
-    }
-  });
+      if (level !== lightMap[i]) {
+        lightMap[i] = level;
+        cell.textContent = toChar(level);
+      }
+    });
+  };
 
   const setup = () => {
     cols = Math.floor(window.innerWidth / charWidth);
@@ -65,7 +66,13 @@ document.addEventListener("DOMContentLoaded", () => {
     update();
   }
 
+  const handleTouchMove = (event) => {
+    const touch = event[0];
+    if (touch) update(touch);
+  };
+
   window.addEventListener('mousemove', update);
   window.addEventListener('resize', setup);
+  window.addEventListener('touchmove', handleTouchMove, { passive: true });
   setup();
 });
