@@ -1,6 +1,7 @@
 * {
-    font-family: "Inter", serif;
+    font-family: "DM Sans", sans-serif;
     font-optical-sizing: auto;
+    font-weight: 300;
     font-style: normal;
 }
 
@@ -18,48 +19,79 @@ a {
     text-decoration: none;
 }
 
-h1 {
-    font-size: 4rem;
-    line-height: 100%;
-    font-weight: 600;
-}
-
-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5rem 2rem;
-}
-
-section > div {
-    max-width: 30rem;
+main {
     width: 100%;
-}
-
-.card {
-    border-radius: 1.5rem;
-    background: white;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 14rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    aspect-ratio: 1 / 1;
+    flex-direction: column;
 }
 
 img {
-    width: 45%;
-    height: 45%;
-    animation: spin 1ms linear;
-    animation-timeline: scroll();
-    animation-range: entry 0% exit 100%;
+    width: 100%;
+    height: 100%;
+    animation: spin 100s linear;
 }
 
-.spaced-text {
+span {
+    font-weight: 400;
+    font-size: 2.5rem;
+}
+
+button {
+    background: white;
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 10rem;
+    transition: all 0.2s ease;
+    cursor: crosshair;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+form {
+    background: hsl(0deg, 0%, 97%);
+    position: fixed;
+    width: 100%;
+    height: 100%;
     display: flex;
-    height: 150vh;
-    padding: 50vh 0;
-    color: hsl(0deg, 0%, 70%);
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+
+form > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 1rem;
+    transition: opacity 0.5s ease;
+    transition-delay: 0.6s;
+}
+
+input {
+    padding: 0.4rem 0.8rem;
+    background-color: hsl(0deg, 0%, 97%);
+    border: 1px solid hsl(0deg, 0%, 86%);
+    border-radius: 10rem;
+}
+
+input::placeholder {
+   color: hsl(0deg, 0%, 70%);
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 @keyframes spin {
