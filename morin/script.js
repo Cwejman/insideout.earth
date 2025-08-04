@@ -1,5 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { GUI } from 'dat.gui';
+
 import { createMesh } from './boys.js';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -19,14 +21,30 @@ document.addEventListener("DOMContentLoaded", () => {
   scene.add(camera);
   scene.add(new THREE.AmbientLight(0x404040));
 
-  const mesh = createMesh();
+  const params = {
+    u: 0,
+    v: 0,
+  };
+
+  let loop1s = 0
+  let mesh;
+  (mesh = createMesh({ params, loop1s }));
   scene.add(mesh);
+
+  const gui = new GUI();
+  gui.add(params, 'u', 0, Math.PI, 0.01).name('U');
+  gui.add(params, 'v', 0, Math.PI, Math.PI / 30).name('V');
 
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
 
   function loop () {
     requestAnimationFrame(loop);
+    scene.remove(mesh);
+    (mesh = createMesh({ params, loop1s }));
+    scene.add(mesh);
+    loop1s = (Date.now() / 1000) % Math.PI;
+    console.log(loop1s)
     controls.update();
     renderer.render(scene, camera);
   }

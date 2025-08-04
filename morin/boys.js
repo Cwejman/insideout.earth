@@ -16,9 +16,11 @@ export function createMesh ({
                               uSteps = 20,
                               vSteps = 30,
                               uMin = 0.001,
-                              uMax = Math.PI,
+                              uMax = Math.PI/3 * 2,
                               vMin = 0.001,
-                              vMax = Math.PI
+                              vMax = Math.PI/3 * 2,
+                              params,
+  loop1s
                             } = {}) {
   const loops = [];
   for (let j = 0; j <= vSteps; j++) {
@@ -47,6 +49,18 @@ export function createMesh ({
   }
 
   const group = new THREE.Group();
+
+  console.log(loop1s)
+
+  const point = new THREE.Points(
+    new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(...boysSurface(loop1s, params.v))]),
+    new THREE.PointsMaterial({
+      color: new THREE.Color().setHSL(params.v / PI || 0, 1, 0.5),
+      size: 0.1
+    }),
+  );
+
+  group.add(point)
 
   loops.forEach((loop, i) => {
     const geometry = new THREE.BufferGeometry().setFromPoints(
