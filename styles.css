@@ -120,11 +120,6 @@ footer {
     gap: 1rem;
 }
 
-a.svg {
-    height: 0.5rem;
-    width: 0.5rem;
-}
-
 @keyframes spin {
     from {
         transform: rotate(0deg);
