@@ -260,15 +260,15 @@
     </section>
 
     <!-- PARTICIPATE -->
-    <section class="px-8 md:px-16 lg:px-20 py-28 md:py-36 lg:py-48 bg-[#faf9f5]">
-      <div class="max-w-7xl mx-auto">
+    <section class="relative px-8 md:px-16 lg:px-20 py-28 md:py-36 lg:py-48 bg-[var(--ink)] text-white">
+      <div class="relative max-w-7xl mx-auto">
 
         <!-- Section opener -->
         <div class="mb-20 md:mb-28 lg:mb-36 max-w-4xl">
-          <h2 class="text-6xl md:text-8xl lg:text-[140px] font-medium leading-[0.92] tracking-[-0.035em]">
+          <h2 class="text-6xl md:text-8xl lg:text-[140px] font-medium leading-[0.92] tracking-[-0.035em] text-white">
             Participate.
           </h2>
-          <p class="serif italic mt-10 md:mt-12 text-2xl md:text-3xl lg:text-4xl leading-[1.25] text-[var(--ink-muted)]">
+          <p class="serif italic mt-10 md:mt-12 text-2xl md:text-3xl lg:text-4xl leading-[1.25] text-white/55">
             Held by many.
           </p>
         </div>
@@ -276,65 +276,65 @@
         <!-- Four path cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 lg:gap-6">
 
-          <div class="bg-white rounded-2xl md:rounded-3xl p-8 md:p-10 lg:p-12 flex flex-col">
-            <div class="pop-in flex flex-col flex-1">
-              <h3 class="text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.95] tracking-[-0.03em] mb-8 md:mb-10" style="color: #C2410C;">
+          <a href="https://member.insideout.earth" class="group relative block rounded-2xl md:rounded-3xl p-8 md:p-10 lg:p-12 bg-white/[0.03] backdrop-blur-md transition duration-500 ease-out hover:-translate-y-[3px] hover:bg-white/[0.05]">
+            <div class="pop-in relative flex flex-col h-full">
+              <h3 class="text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.95] tracking-[-0.03em] text-[#FF8D10] mb-5 md:mb-6 lg:mb-7">
                 Member.
               </h3>
-              <p class="text-lg md:text-xl leading-[1.45] mb-10 md:mb-12 flex-1 text-[var(--ink)]">
-                Become a <strong class="font-semibold">formal part of the NGO</strong>. A way to support the work, stay close through our communications, and remain part of programmes where membership is required to continue.
+              <p class="text-base md:text-lg leading-[1.5] text-white/70 mb-5 md:mb-6 lg:mb-7 flex-1">
+                Become a <strong class="font-semibold text-white">formal part of the NGO</strong>. A way to support the work, stay close through our communications, and remain part of programmes where membership is required to continue.
               </p>
-              <a href="#" class="inline-flex items-center self-start text-base md:text-lg lg:text-xl font-semibold group" style="color: #C2410C;">
+              <span class="inline-flex items-center self-start text-base md:text-lg lg:text-xl font-semibold text-[#FF8D10]">
                 <span>Become a member</span>
                 <span class="ml-2 inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
-              </a>
+              </span>
             </div>
-          </div>
+          </a>
 
-          <div class="bg-white rounded-2xl md:rounded-3xl p-8 md:p-10 lg:p-12 flex flex-col">
-            <div class="pop-in flex flex-col flex-1">
-              <h3 class="text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.95] tracking-[-0.03em] mb-8 md:mb-10" style="color: #7E22CE;">
+          <button type="button" data-copy-email class="group relative block text-left w-full rounded-2xl md:rounded-3xl p-8 md:p-10 lg:p-12 bg-white/[0.03] backdrop-blur-md transition duration-500 ease-out hover:-translate-y-[3px] hover:bg-white/[0.05]">
+            <div class="pop-in relative flex flex-col h-full">
+              <h3 class="text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.95] tracking-[-0.03em] text-[#C876FB] mb-5 md:mb-6 lg:mb-7">
                 Practitioner.
               </h3>
-              <p class="text-lg md:text-xl leading-[1.45] mb-10 md:mb-12 flex-1 text-[var(--ink)]">
-                Therapists, psychologists, doctors, educators, leaders — bring your expertise to shape what Inside Out offers.
+              <p class="text-base md:text-lg leading-[1.5] text-white/70 mb-5 md:mb-6 lg:mb-7 flex-1">
+                Therapists, psychologists, doctors, educators, leaders — <strong class="font-semibold text-white">bring your expertise</strong> to shape what Inside Out offers.
               </p>
-              <a href="#" class="inline-flex items-center self-start text-base md:text-lg lg:text-xl font-semibold group" style="color: #7E22CE;">
-                <span>Get in touch</span>
-                <span class="ml-2 inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
-              </a>
+              <span class="inline-flex items-center self-start text-base md:text-lg lg:text-xl font-semibold text-[#C876FB]">
+                <span data-cta-text data-original="Get in touch">Get in touch</span>
+                <span data-cta-arrow class="ml-2 inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+              </span>
             </div>
-          </div>
+          </button>
 
-          <div class="bg-white rounded-2xl md:rounded-3xl p-8 md:p-10 lg:p-12 flex flex-col">
-            <div class="pop-in flex flex-col flex-1">
-              <h3 class="text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.95] tracking-[-0.03em] mb-8 md:mb-10" style="color: #047857;">
+          <button type="button" data-copy-email class="group relative block text-left w-full rounded-2xl md:rounded-3xl p-8 md:p-10 lg:p-12 bg-white/[0.03] backdrop-blur-md transition duration-500 ease-out hover:-translate-y-[3px] hover:bg-white/[0.05]">
+            <div class="pop-in relative flex flex-col h-full">
+              <h3 class="text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.95] tracking-[-0.03em] text-[#00C68D] mb-5 md:mb-6 lg:mb-7">
                 Partner.
               </h3>
-              <p class="text-lg md:text-xl leading-[1.45] mb-10 md:mb-12 flex-1 text-[var(--ink)]">
-                Collaborate with us as an organisation — across Gothenburg, healthcare, business, the non-profit sector, and international networks. Inside Out is applying to join the <strong class="font-semibold">IDG (Inner Development Goals) Hub network</strong>.
+              <p class="text-base md:text-lg leading-[1.5] text-white/70 mb-5 md:mb-6 lg:mb-7 flex-1">
+                Collaborate as an organisation — across Gothenburg, healthcare, business, the non-profit sector, and international networks. Inside Out is applying to join the <strong class="font-semibold text-white">IDG (Inner Development Goals) Hub network</strong>.
               </p>
-              <a href="#" class="inline-flex items-center self-start text-base md:text-lg lg:text-xl font-semibold group" style="color: #047857;">
-                <span>Get in touch</span>
-                <span class="ml-2 inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
-              </a>
+              <span class="inline-flex items-center self-start text-base md:text-lg lg:text-xl font-semibold text-[#00C68D]">
+                <span data-cta-text data-original="Get in touch">Get in touch</span>
+                <span data-cta-arrow class="ml-2 inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+              </span>
             </div>
-          </div>
+          </button>
 
-          <div class="bg-white rounded-2xl md:rounded-3xl p-8 md:p-10 lg:p-12 flex flex-col">
-            <div class="pop-in flex flex-col flex-1">
-              <h3 class="text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.95] tracking-[-0.03em] mb-8 md:mb-10" style="color: #1D4ED8;">
+          <a href="https://donate.insideout.earth" class="group relative block rounded-2xl md:rounded-3xl p-8 md:p-10 lg:p-12 bg-white/[0.03] backdrop-blur-md transition duration-500 ease-out hover:-translate-y-[3px] hover:bg-white/[0.05]">
+            <div class="pop-in relative flex flex-col h-full">
+              <h3 class="text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.95] tracking-[-0.03em] text-[#5BA3FF] mb-5 md:mb-6 lg:mb-7">
                 Funder.
               </h3>
-              <p class="text-lg md:text-xl leading-[1.45] mb-10 md:mb-12 flex-1 text-[var(--ink)]">
-                Support the work as a donor or funder. The Living Room is the first of many spaces; growing asks for <strong class="font-semibold">committed support over time</strong>.
+              <p class="text-base md:text-lg leading-[1.5] text-white/70 mb-5 md:mb-6 lg:mb-7 flex-1">
+                Support the work as a donor or funder. The Living Room is the first of many spaces; growing asks for <strong class="font-semibold text-white">committed support over time</strong>.
               </p>
-              <a href="#" class="inline-flex items-center self-start text-base md:text-lg lg:text-xl font-semibold group" style="color: #1D4ED8;">
-                <span>Give or get in touch</span>
+              <span class="inline-flex items-center self-start text-base md:text-lg lg:text-xl font-semibold text-[#5BA3FF]">
+                <span>Give</span>
                 <span class="ml-2 inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
-              </a>
+              </span>
             </div>
-          </div>
+          </a>
 
         </div>
 
@@ -343,7 +343,7 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-[var(--ink)] text-white px-8 md:px-16 lg:px-20 py-20 md:py-24 lg:py-28">
+  <footer class="bg-[var(--ink)] text-white border-t border-white/10 px-8 md:px-16 lg:px-20 py-20 md:py-24 lg:py-28">
     <div class="max-w-7xl mx-auto">
 
       <div class="mb-16">
@@ -485,6 +485,42 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     updateScrollEffects();
+
+    // Copy email to clipboard for cards with data-copy-email.
+    const EMAIL = 'hi@insideout.earth';
+    const COPIED_MSG = 'Email copied to clipboard';
+    document.querySelectorAll('[data-copy-email]').forEach((btn) => {
+      let revertTimer;
+      let typingToken = 0;
+      btn.addEventListener('click', async () => {
+        const textEl = btn.querySelector('[data-cta-text]');
+        const arrowEl = btn.querySelector('[data-cta-arrow]');
+        try {
+          await navigator.clipboard.writeText(EMAIL);
+        } catch (_) {
+          const ta = document.createElement('textarea');
+          ta.value = EMAIL;
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand('copy'); } catch (_) {}
+          document.body.removeChild(ta);
+        }
+        clearTimeout(revertTimer);
+        if (arrowEl) arrowEl.style.display = 'none';
+        const token = ++typingToken;
+        textEl.textContent = '';
+        for (let i = 1; i <= COPIED_MSG.length; i++) {
+          if (token !== typingToken) return;
+          textEl.textContent = COPIED_MSG.slice(0, i);
+          await wait(45);
+        }
+        revertTimer = setTimeout(() => {
+          if (token !== typingToken) return;
+          textEl.textContent = textEl.dataset.original;
+          if (arrowEl) arrowEl.style.display = '';
+        }, 4400);
+      });
+    });
 
     // Threshold-triggered pop-in for cards — fixed-duration fade once the element crosses into view.
     const popIns = document.querySelectorAll('.pop-in');
