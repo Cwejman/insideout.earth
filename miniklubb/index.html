@@ -1,179 +1,233 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Miniklubben — Inside Out</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-<style>
-    * {
-        font-family: "DM Sans", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 300;
-        font-style: normal;
-        box-sizing: border-box;
-    }
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Miniklubben — Inside Out</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            * {
+                font-family: "DM Sans", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 300;
+                font-style: normal;
+                box-sizing: border-box;
+            }
 
-    body, html {
-        background: hsl(0deg, 0%, 97%);
-        margin: 0;
-        min-height: 100vh;
-    }
+            body,
+            html {
+                background: hsl(0deg, 0%, 97%);
+                margin: 0;
+                min-height: 100vh;
+            }
 
-    main {
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2.5rem;
-        padding: 2rem;
-        max-width: 22rem;
-        width: 100%;
-        text-align: center;
-    }
+            main {
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2.5rem;
+                padding: 2rem;
+                max-width: 22rem;
+                width: 100%;
+                text-align: center;
+            }
 
-    .hero {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
+            .hero {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
 
-    .rainbow {
-        width: 11rem;
-        height: auto;
-        animation: float 4.5s ease-in-out infinite;
-        transform-origin: 50% 90%;
-    }
+            .rainbow {
+                width: 11rem;
+                height: auto;
+                animation: float 4.5s ease-in-out infinite;
+                transform-origin: 50% 90%;
+            }
 
-    .rainbow path {
-        stroke-dasharray: 260;
-        stroke-dashoffset: 260;
-        animation: draw 1.6s ease-out forwards;
-    }
+            .rainbow path {
+                stroke-dasharray: 260;
+                stroke-dashoffset: 260;
+                animation: draw 1.6s ease-out forwards;
+            }
 
-    .rainbow path:nth-child(1) { animation-delay: 0.0s; }
-    .rainbow path:nth-child(2) { animation-delay: 0.15s; }
-    .rainbow path:nth-child(3) { animation-delay: 0.3s; }
-    .rainbow path:nth-child(4) { animation-delay: 0.45s; }
-    .rainbow path:nth-child(5) { animation-delay: 0.6s; }
-    .rainbow path:nth-child(6) { animation-delay: 0.75s; }
+            .rainbow path:nth-child(1) {
+                animation-delay: 0s;
+            }
+            .rainbow path:nth-child(2) {
+                animation-delay: 0.15s;
+            }
+            .rainbow path:nth-child(3) {
+                animation-delay: 0.3s;
+            }
+            .rainbow path:nth-child(4) {
+                animation-delay: 0.45s;
+            }
+            .rainbow path:nth-child(5) {
+                animation-delay: 0.6s;
+            }
+            .rainbow path:nth-child(6) {
+                animation-delay: 0.75s;
+            }
 
-    @keyframes draw {
-        to { stroke-dashoffset: 0; }
-    }
+            @keyframes draw {
+                to {
+                    stroke-dashoffset: 0;
+                }
+            }
 
-    @keyframes float {
-        0%, 100% { transform: translateY(0) rotate(-2deg); }
-        50%     { transform: translateY(-8px) rotate(2deg); }
-    }
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0) rotate(-2deg);
+                }
+                50% {
+                    transform: translateY(-8px) rotate(2deg);
+                }
+            }
 
-    @media (prefers-reduced-motion: reduce) {
-        .rainbow, .rainbow path { animation: none; }
-        .rainbow path { stroke-dashoffset: 0; }
-    }
+            @media (prefers-reduced-motion: reduce) {
+                .rainbow,
+                .rainbow path {
+                    animation: none;
+                }
+                .rainbow path {
+                    stroke-dashoffset: 0;
+                }
+            }
 
-    h1 {
-        font-weight: 400;
-        font-size: 2.5rem;
-        margin: 0;
-        letter-spacing: -0.01em;
-    }
+            h1 {
+                font-weight: 400;
+                font-size: 2.5rem;
+                margin: 0;
+                letter-spacing: -0.01em;
+            }
 
-    p.subtitle {
-        margin: -1.75rem 0 0;
-        color: hsl(0deg, 0%, 45%);
-        font-size: 0.95rem;
-    }
+            p.subtitle {
+                margin: -1.75rem 0 0;
+                color: hsl(0deg, 0%, 45%);
+                font-size: 0.95rem;
+            }
 
-    .actions {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-        width: 100%;
-        align-items: center;
-    }
+            .actions {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+                width: 100%;
+                align-items: center;
+            }
 
-    a.btn {
-        appearance: none;
-        background: white;
-        color: black;
-        border: none;
-        border-radius: 10rem;
-        transition: all 0.2s ease;
-        font-size: 0.95rem;
-        cursor: crosshair;
-        padding: 0.65rem 1.4rem;
-        text-decoration: none;
-        display: inline-block;
-        min-width: 12rem;
-        text-align: center;
-    }
+            a.btn {
+                appearance: none;
+                background: white;
+                color: black;
+                border: none;
+                border-radius: 10rem;
+                transition: all 0.2s ease;
+                font-size: 0.95rem;
+                cursor: crosshair;
+                padding: 0.65rem 1.4rem;
+                text-decoration: none;
+                display: inline-block;
+                min-width: 12rem;
+                text-align: center;
+            }
 
-    a.btn:hover {
-        background-color: black;
-        color: white;
-    }
+            a.btn:hover {
+                background-color: black;
+                color: white;
+            }
 
-    a.btn.primary {
-        background: black;
-        color: white;
-    }
+            a.btn.primary {
+                background: black;
+                color: white;
+            }
 
-    a.btn.primary:hover {
-        background: white;
-        color: black;
-    }
+            a.btn.primary:hover {
+                background: white;
+                color: black;
+            }
 
-    footer {
-        position: fixed;
-        left: 0;
-        bottom: 1.75rem;
-        width: 100%;
-        text-align: center;
-        font-size: 0.8rem;
-        color: hsl(0deg, 0%, 60%);
-    }
+            footer {
+                position: fixed;
+                left: 0;
+                bottom: 1.75rem;
+                width: 100%;
+                text-align: center;
+                font-size: 0.8rem;
+                color: hsl(0deg, 0%, 60%);
+            }
 
-    footer a {
-        color: inherit;
-        text-decoration: none;
-    }
+            footer a {
+                color: inherit;
+                text-decoration: none;
+            }
 
-    footer a:hover {
-        color: black;
-    }
-</style>
-</head>
-<body>
-<main>
-    <div class="hero">
-        <svg class="rainbow" viewBox="0 0 200 110" aria-hidden="true">
-            <g fill="none" stroke-width="9" stroke-linecap="round">
-                <path d="M 20 95 A 80 80 0 0 1 180 95" stroke="#ff8a8a"/>
-                <path d="M 31 95 A 69 69 0 0 1 169 95" stroke="#ffb574"/>
-                <path d="M 42 95 A 58 58 0 0 1 158 95" stroke="#ffdc6b"/>
-                <path d="M 53 95 A 47 47 0 0 1 147 95" stroke="#8ed68e"/>
-                <path d="M 64 95 A 36 36 0 0 1 136 95" stroke="#7cb8e8"/>
-                <path d="M 75 95 A 25 25 0 0 1 125 95" stroke="#b58cd8"/>
-            </g>
-        </svg>
-        <h1>Miniklubben</h1>
-    </div>
+            footer a:hover {
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <div class="hero">
+                <svg class="rainbow" viewBox="0 0 200 110" aria-hidden="true">
+                    <g fill="none" stroke-width="9" stroke-linecap="round">
+                        <path
+                            d="M 20 95 A 80 80 0 0 1 180 95"
+                            stroke="#ff8a8a"
+                        />
+                        <path
+                            d="M 31 95 A 69 69 0 0 1 169 95"
+                            stroke="#ffb574"
+                        />
+                        <path
+                            d="M 42 95 A 58 58 0 0 1 158 95"
+                            stroke="#ffdc6b"
+                        />
+                        <path
+                            d="M 53 95 A 47 47 0 0 1 147 95"
+                            stroke="#8ed68e"
+                        />
+                        <path
+                            d="M 64 95 A 36 36 0 0 1 136 95"
+                            stroke="#7cb8e8"
+                        />
+                        <path
+                            d="M 75 95 A 25 25 0 0 1 125 95"
+                            stroke="#b58cd8"
+                        />
+                    </g>
+                </svg>
+                <h1>Miniklubben</h1>
+            </div>
 
-    <div class="actions">
-        <a class="btn primary" href="https://forms.cloud.microsoft/e/zW4eeQreCE">OSA till 23 maj</a>
-        <a class="btn" href="https://pay.insideout.earth/b/14A3cv6VD01xgus0xXaEE03">Donera</a>
-    </div>
-</main>
+            <div class="actions">
+                <a
+                    class="btn primary"
+                    href="https://forms.cloud.microsoft/e/2aAcD872Mg"
+                    >OSA till 7e juni</a
+                >
+                <a
+                    class="btn"
+                    href="https://pay.insideout.earth/b/14A3cv6VD01xgus0xXaEE03"
+                    >Donera (lunch 40kr)</a
+                >
+            </div>
+        </main>
 
-<footer>
-    <a href="/">insideout.earth</a>
-</footer>
-</body>
+        <footer>
+            <a href="/">insideout.earth</a>
+        </footer>
+    </body>
 </html>
